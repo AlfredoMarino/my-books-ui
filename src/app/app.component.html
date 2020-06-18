@@ -1,8 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<app-header></app-header>
 
-<!-- add the selector from the CustomerDashboardComponent -->
-<app-book></app-book>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
 
-<app-book-list></app-book-list>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+    <div class="container">
+      <app-book-list></app-book-list>
+    </div>
+  </div>
+
+</mat-drawer-container>
+
+
