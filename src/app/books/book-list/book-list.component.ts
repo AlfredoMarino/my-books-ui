@@ -18,7 +18,7 @@ export class BookListComponent implements OnInit {
   }
 
   getBooks(): void {
-    this.bookService.getBooks().subscribe(books => this.books = books);
+    this.bookService.getBooksByPersonId(11).subscribe(books => this.books = books);
   }
 
 }
