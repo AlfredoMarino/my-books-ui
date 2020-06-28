@@ -1,14 +1,17 @@
 <div *ngIf="book">
   <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ book.title | uppercase }}</mat-card-title>
-      <mat-card-subtitle>{{ book.author.name }}</mat-card-subtitle>
-    </mat-card-header>
+<!--    <mat-card-header>-->
+
+<!--    </mat-card-header>-->
     <div class="crop-image">
       <img [src]="book.image" alt="">
     </div>
+    <mat-card-title>{{ book.title }}</mat-card-title>
+<!--    <mat-card-title>{{ book.title | uppercase }}</mat-card-title>-->
+    <mat-card-subtitle>{{ book.author.name }}</mat-card-subtitle>
     <mat-card-content>
-      <p>{{ book.synopsis | slice:0:100 }}</p>
+      <p>{{ book.bookId }}</p>
+<!--      <p>{{ book.idBook | slice:0:100 }}</p>-->
     </mat-card-content>
 <!--    <mat-card-actions>-->
 <!--      <a mat-raised-button [routerLink]="['/products', product.id]">Ver detalle</a>-->

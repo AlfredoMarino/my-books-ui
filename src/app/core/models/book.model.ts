@@ -2,15 +2,15 @@ import {Author} from './author.model';
 import {Category} from './category.model';
 
 export interface Book {
-  idBook: number;
+  bookId: number;
   title: string;
   subtitle: string;
-  synopsis: string;
+  description: string;
   author: Author;
   publicationDate: Date;
   category: Category;
   image: string;
   isbn10: number;
   isbn13: number;
-  idGoogle: string;
+  googleId: string;
 }
