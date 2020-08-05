@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Library} from '@core/models/library.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Library } from '@core/models/library.model';
 
 @Component({
   selector: 'app-library',

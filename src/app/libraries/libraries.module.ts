@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LibraryComponent } from './library/library.component';
-import {LibraryListComponent} from './library-list/library-list.component';
-import {MaterialModule} from '@material/material.module';
+import { LibraryComponent } from './components/library/library.component';
+import { LibraryListComponent } from './components/library-list/library-list.component';
+import { MaterialModule } from '@material/material.module';
+import { LibrariesRoutingModule } from "./libraries-routing.module";
 
 @NgModule({
   declarations: [LibraryListComponent, LibraryComponent],
-  exports: [
-    LibraryListComponent
-  ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    LibrariesRoutingModule
   ]
 })
 export class LibrariesModule { }

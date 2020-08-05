@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LibraryService} from '@core/services/library.service';
-import {Library} from '@core/models/library.model';
+import { LibraryService } from '@core/services/libraries/library.service';
+import { Library } from '@core/models/library.model';
 
 @Component({
   selector: 'app-library-list',
