@@ -6,11 +6,11 @@ export interface Book {
   title: string;
   subtitle: string;
   description: string;
-  author: Author;
+  authors: Author[];
   publicationDate: Date;
-  category: Category;
+  categories: Category[];
   image: string;
-  isbn10: number;
-  isbn13: number;
+  isbn10: string;
+  isbn13: string;
   googleId: string;
 }

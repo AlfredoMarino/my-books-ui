@@ -8,7 +8,8 @@
     </div>
     <mat-card-title>{{ library.book.title }}</mat-card-title>
     <!--    <mat-card-title>{{ book.title | uppercase }}</mat-card-title>-->
-    <mat-card-subtitle>{{ library.book.author.name }}</mat-card-subtitle>
+    <mat-card-subtitle *ngFor="let author of library.book.authors">{{ author.name }}</mat-card-subtitle>
+    <!-- <mat-card-subtitle>{{ library.book.author.name }}</mat-card-subtitle> -->
     <mat-card-content>
       <p>{{ library.book.bookId }}</p>
       <p>{{ library.rating }}</p>

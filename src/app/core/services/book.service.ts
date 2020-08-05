@@ -28,4 +28,8 @@ export class BookService {
       );
   }
 
+  getBooksByName(name: string): Observable<Book[]>{
+    return this.http.get<Book[]>(`${(this.HOST)}/books?name=${name}`);
+  }
+
 }

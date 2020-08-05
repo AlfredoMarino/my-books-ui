@@ -18,7 +18,12 @@ export class BookListComponent implements OnInit {
   }
 
   getBooks(): void {
-    this.bookService.getBooksByPersonId(11).subscribe(books => this.books = books);
+    this.bookService.getBooksByName("nostradamus").subscribe(books => this.books = books);
+    // this.bookService.getBooksByPersonId(11).subscribe(books => this.books = books);
+  }
+
+  searchHandler(algo: string) {
+    console.log(algo)
   }
 
 }

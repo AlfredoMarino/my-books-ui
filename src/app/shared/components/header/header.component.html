@@ -1,6 +1,9 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
+  <span>
     <mat-icon>local_library</mat-icon>
-    <span>MyBooks</span>
-  </mat-toolbar-row>
+  </span>
+  <span>{{ APP_TITLE }}</span>
+  <span class="example-spacer">
+    <app-search></app-search>
+  </span>
 </mat-toolbar>

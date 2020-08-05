@@ -18,7 +18,7 @@ export class LibraryListComponent implements OnInit {
   }
 
   getLibraries(): void {
-    this.libraryService.getLibrariesByPersonId(11).subscribe(libraries => this.libraries = libraries);
+    this.libraryService.getLibrariesByPersonId(20).subscribe(libraries => this.libraries = libraries);
   }
 
 }
