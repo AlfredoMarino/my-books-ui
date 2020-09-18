@@ -19,7 +19,8 @@
       "@core/*": ["src/app/core/*"],
       "@material/*": ["src/app/material/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@books/*": ["src/app/books/*"]
+      "@books/*": ["src/app/books/*"],
+      "@environments/*": ["src/environments/*"]
     }
   },
   "angularCompilerOptions": {
