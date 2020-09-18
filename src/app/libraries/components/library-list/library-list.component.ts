@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LibraryService } from '@core/services/libraries/library.service';
 import { Library } from '@core/models/library.model';
+import { environment } from "@environments/environment";
 
 @Component({
   selector: 'app-library-list',
@@ -18,7 +19,7 @@ export class LibraryListComponent implements OnInit {
   }
 
   getLibraries(): void {
-    this.libraryService.getLibrariesByPersonId(20).subscribe(libraries => this.libraries = libraries);
+    this.libraryService.getLibrariesByPersonId(environment.personId).subscribe(libraries => this.libraries = libraries);
   }
 
 }

@@ -12,5 +12,5 @@ export interface Library {
   finalRegion: Region;
   rating: number;
   note: string;
-  creationDate: Date;
+  creationDate?: Date;
 }

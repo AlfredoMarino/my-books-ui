@@ -15,7 +15,7 @@ export class BookListComponent implements OnInit {
   constructor(private bookService: BookService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => this.getBooksByName(params['name']));
+    this.activatedRoute.params.subscribe(({ name }) => this.getBooksByName(name));
   }
 
   getBooksByName(name: string): void {

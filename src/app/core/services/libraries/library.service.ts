@@ -14,4 +14,8 @@ export class LibraryService {
   getLibrariesByPersonId(personId: number): Observable<Library[]> {
     return this.httpClient.get<Library[]>(`${environment.myBooksServiceApiURL}/persons/${personId}/libraries`);
   }
+
+  createLibrary(personId: number, googleId: string, library: Library): Observable<Library> {
+    return this.httpClient.post<Library>(`${environment.myBooksServiceApiURL}/persons/${personId}/libraries/${googleId}`, library);
+  }
 }

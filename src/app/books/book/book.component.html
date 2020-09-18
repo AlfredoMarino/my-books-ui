@@ -8,6 +8,9 @@
     <mat-card-content>
       <p>{{ book.bookId }}</p>
     </mat-card-content>
+    <button mat-mini-fab color="primary" aria-label="Add to my library" (click)="addBookToLibrary()">
+      <mat-icon>add</mat-icon>
+    </button>
   </mat-card>
 </div>
 
