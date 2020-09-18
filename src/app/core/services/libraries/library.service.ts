@@ -9,9 +9,9 @@ import { environment } from "@environments/environment";
 })
 export class LibraryService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getLibrariesByPersonId(personId: number): Observable<Library[]> {
-    return this.http.get<Library[]>(`${environment.myBooksServiceApiURL}/persons/${personId}/libraries`);
+    return this.httpClient.get<Library[]>(`${environment.myBooksServiceApiURL}/persons/${personId}/libraries`);
   }
 }

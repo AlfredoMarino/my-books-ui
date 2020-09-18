@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { BookService } from '@core/services/books/book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -12,20 +12,12 @@ export class SearchComponent implements OnInit {
   search = new FormControl('');
   hide = true;
 
-  constructor(private bookService: BookService) {
+  constructor(private router: Router) { }
 
-  }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   searchBook() {
-    
-    console.log(this.search.value);
-    
-    this.bookService.getBooksByName(this.search.value).forEach(value => console.log(value));
-    
+    this.router.navigate(['books/', this.search.value]);
   }
-
 
 }

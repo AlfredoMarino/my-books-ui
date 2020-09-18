@@ -14,21 +14,10 @@ export class BookService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) { }
-
-  getBooksByPersonId(personId: number): Observable<Book[]> {
-    return this.http.get<Book[]>(`${environment.myBooksServiceApiURL}/persons/${personId}/libraries/books`);
-  }
-
-  getBook(bookId: string) {
-    return this.http.get<Book>(`${environment.myBooksServiceApiURL}/books/${bookId}`)
-      .pipe(
-        retry(1)
-      );
-  }
+  constructor(private httpClient: HttpClient) { }
 
   getBooksByName(name: string): Observable<Book[]>{
-    return this.http.get<Book[]>(`${environment.myBooksServiceApiURL}/books?name=${name}`);
+    return this.httpClient.get<Book[]>(`${environment.myBooksServiceApiURL}/books?name=${name}`);
   }
 
 }

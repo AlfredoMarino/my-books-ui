@@ -15,7 +15,7 @@ const routes: Routes = [
         loadChildren: () => import('./libraries/libraries.module').then(m => m.LibrariesModule)
       },
       {
-        path: 'books',
+        path: 'books/:name',
         component: BookListComponent
       }
     ]
@@ -29,7 +29,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      routes, {
+      routes,
+      {
         preloadingStrategy: PreloadAllModules
       }
     )

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '@core/services/books/book.service';
 import { Book } from '@core/models/book.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
@@ -11,19 +12,14 @@ export class BookListComponent implements OnInit {
 
   books: Book[];
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getBooks();
+    this.activatedRoute.params.subscribe(params => this.getBooksByName(params['name']));
   }
 
-  getBooks(): void {
-    this.bookService.getBooksByName("nostradamus").subscribe(books => this.books = books);
-    // this.bookService.getBooksByPersonId(11).subscribe(books => this.books = books);
-  }
-
-  searchHandler(algo: string) {
-    console.log(algo)
+  getBooksByName(name: string): void {
+    this.bookService.getBooksByName(name).subscribe(books => this.books = books);
   }
 
 }
