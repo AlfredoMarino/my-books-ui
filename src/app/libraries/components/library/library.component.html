@@ -11,5 +11,8 @@
       <p>{{ library.book.bookId }}</p>
       <p>{{ library.rating }}</p>
     </mat-card-content>
+    <button mat-mini-fab color="primary" aria-label="Remove from my library" (click)="deleteLibrary()">
+      <mat-icon>remove</mat-icon>
+    </button>
   </mat-card>
 </div>
