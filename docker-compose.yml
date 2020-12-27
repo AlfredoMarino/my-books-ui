@@ -1,0 +1,49 @@
+version: '3.3'
+services:
+  my_books_service:
+    image: aamv/my-books-service:latest
+    depends_on:
+      - my_books_database
+    ports:
+      - '5000:8080'
+    expose:
+      - '5000'
+    volumes:
+      - /data/spring-boot-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://my_books_database:3306/mybooksdb
+      SPRING_DATASOURCE_USERNAME: aamv
+      SPRING_DATASOURCE_PASSWORD: aamv
+    networks:
+      - backend-network
+
+  my_books_database:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'mybooksdb'
+      MYSQL_USER: 'aamv'
+      MYSQL_PASSWORD: 'aamv'
+      MYSQL_ROOT_PASSWORD: 'aamv'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    networks:
+      - backend-network
+
+  my_books_ui:
+    image: aamv/my-books-ui:latest
+    depends_on:
+      - my_books_database
+      - my_books_service
+    ports:
+      - '80:80'
+    expose:
+      - '80'
+
+volumes:
+  my-db:
+networks:
+  backend-network:
