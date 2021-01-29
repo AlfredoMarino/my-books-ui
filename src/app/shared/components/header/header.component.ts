@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  APP_TITLE = "MyBooks";
+  APP_TITLE: string = "MyBooks";
+  isSearchComponentDisplayed: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleSearchComponent(): void {
+    this.isSearchComponentDisplayed = !this.isSearchComponentDisplayed;
+  }
 }

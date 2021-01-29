@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 
   search = new FormControl('');
-  hide = true;
 
   constructor(private router: Router) { }
 

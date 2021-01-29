@@ -1,14 +1,19 @@
-<mat-toolbar color="primary">
-  <span>
-    <mat-icon>local_library</mat-icon>
+<mat-toolbar color="primary" *ngIf="isSearchComponentDisplayed">
+  <app-search></app-search>
+  <span class="spacer"></span>
+  <button mat-icon-button aria-label="Search-off" (click)="toggleSearchComponent()">
+    <mat-icon>search_off</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-toolbar color="primary" *ngIf="!isSearchComponentDisplayed">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span routerLink="/" routerLinkActive="active">
+    <mat-icon>local_library</mat-icon>{{ APP_TITLE }}
   </span>
-  <span>{{ APP_TITLE }}</span>
-  <span class="example-spacer">
-    <app-search></app-search>
-  </span>
-  <nav>
-    <button mat-icon-button color="accent" aria-label="Go to home" routerLink="/" routerLinkActive="active">
-      <mat-icon>home</mat-icon>
-    </button>
-  </nav>
+  <span class="spacer"></span>
+  <button mat-icon-button aria-label="Search" (click)="toggleSearchComponent()">
+    <mat-icon>search</mat-icon>
+  </button>
 </mat-toolbar>
