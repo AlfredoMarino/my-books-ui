@@ -1,0 +1,19 @@
+<div layout="row">
+    <div flex>
+        <img mat-card-image [src]="bookSelected.image" [alt]="bookSelected.title" class="book-image">
+    </div>
+    <div flex>
+        <mat-card-header>
+            <mat-card-title>{{bookSelected.title}}</mat-card-title>
+            <mat-card-subtitle>{{bookSelected.authors[0].name}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <p>{{bookSelected.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="addBookToLibrary()">LIKE</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+    </div>
+</div>
