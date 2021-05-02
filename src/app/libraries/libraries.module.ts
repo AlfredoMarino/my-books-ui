@@ -5,6 +5,8 @@ import { LibraryListComponent } from './components/library-list/library-list.com
 import { MaterialModule } from '@material/material.module';
 import { LibrariesRoutingModule } from "./libraries-routing.module";
 import { LibraryDetailsComponent } from './components/library-details/library-details.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LibraryListComponent, LibraryComponent, LibraryDetailsComponent],
@@ -14,7 +16,9 @@ import { LibraryDetailsComponent } from './components/library-details/library-de
   imports: [
     CommonModule,
     MaterialModule,
-    LibrariesRoutingModule
+    LibrariesRoutingModule,
+    ReactiveFormsModule,
+    MatNativeDateModule
   ]
 })
 export class LibrariesModule { }
