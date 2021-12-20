@@ -1,23 +1,12 @@
-<!-- <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px"> -->
-<!-- <app-library *ngFor="let library of libraries" [library]="library"></app-library> -->
-<!-- <mat-card *ngFor="let member of members" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{member.title}}</mat-card-title>
-      <mat-card-subtitle>{{member.subtitle}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="member.url" alt="Photo of {{member.title}}">
-    <mat-card-content>
-      <p>
-        {{member.content}}
-      </p>
-    </mat-card-content>
-  </mat-card> -->
-<!-- </div> -->
-<mat-tab-group mat-align-tabs="start">
+<mat-tab-group mat-align-tabs="start" [selectedIndex]="tabPosition"
+  (selectedIndexChange)="onSelectedIndexChange($event)">
   <mat-tab label="books">
-    <app-library *ngFor="let library of libraries" [library]="library" (librarySelected)="showLibrarySelected($event)">
-    </app-library>
+    <div class="container">
+      <div class="row">
+        <app-library *ngFor="let library of libraries" [library]="library" (librarySelected)="showLibrarySelected($event)">
+        </app-library>
+      </div>
+    </div>
   </mat-tab>
   <mat-tab label="Details">
     <app-library-details *ngIf="librarySelected" [bookSelected]="librarySelected.book"></app-library-details>

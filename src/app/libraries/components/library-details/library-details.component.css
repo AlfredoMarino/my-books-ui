@@ -6,3 +6,9 @@
 mat-slider {
   width: 300px;
 }
+
+.book-cover {
+  height: 300px;
+  margin: 10px;
+  border-radius: 15px;
+}
