@@ -1,6 +1,5 @@
 .library-details-card {
-  display: flex;
-  align-items: flex-end;
+  max-width: 400px;
 }
 
 mat-slider {

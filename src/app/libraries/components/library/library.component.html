@@ -1,5 +1,5 @@
-<div *ngIf="library">
-  <mat-card>
+<!-- <div *ngIf="library"> -->
+  <!-- <mat-card>
     <div class="crop-image">
       <img [src]="library.book.image" alt="" />
     </div>
@@ -14,5 +14,8 @@
     <button mat-mini-fab color="primary" aria-label="Remove from my library" (click)="deleteLibrary()">
       <mat-icon>remove</mat-icon>
     </button>
-  </mat-card>
-</div>
+  </mat-card> -->
+<!-- </div> -->
+
+
+<img [src]="library.book.image" alt="" class="book-cover" (click)="onShowDetails()"/>

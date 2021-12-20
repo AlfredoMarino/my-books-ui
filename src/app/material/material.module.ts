@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSliderModule } from '@angular/material/slider';
-
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatIconModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatSliderModule
+    MatSliderModule,
+    MatTabsModule
   ],
   exports: [
     MatCardModule,
@@ -44,7 +45,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatIconModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatSliderModule
+    MatSliderModule,
+    MatTabsModule
   ]
 })
 export class MaterialModule { }

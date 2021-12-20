@@ -1,4 +1,4 @@
 <div *ngIf="!bookSelected" class="book-grid">
   <app-book *ngFor="let book of books" [book]="book" (bookSelected)="addBookToLibrary($event)"></app-book>
 </div>
-<app-library-details *ngIf="bookSelected" [bookSelected]="bookSelected"></app-library-details>
+<app-book-details *ngIf="bookSelected" [bookSelected]="bookSelected"></app-book-details>

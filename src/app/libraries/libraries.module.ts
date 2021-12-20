@@ -7,6 +7,7 @@ import { LibrariesRoutingModule } from "./libraries-routing.module";
 import { LibraryDetailsComponent } from './components/library-details/library-details.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [LibraryListComponent, LibraryComponent, LibraryDetailsComponent],
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     LibrariesRoutingModule,
     ReactiveFormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FlexLayoutModule
   ]
 })
 export class LibrariesModule { }

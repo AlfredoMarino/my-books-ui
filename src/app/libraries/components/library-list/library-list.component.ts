@@ -11,6 +11,7 @@ import { environment } from "@environments/environment";
 export class LibraryListComponent implements OnInit {
 
   libraries: Library[];
+  librarySelected: Library;
 
   constructor(private libraryService: LibraryService) { }
 
@@ -20,6 +21,10 @@ export class LibraryListComponent implements OnInit {
 
   getLibraries(): void {
     this.libraryService.getLibrariesByPersonId(environment.personId).subscribe(libraries => this.libraries = libraries);
+  }
+
+  showLibrarySelected(librarySelected: Library): void {
+    this.librarySelected = librarySelected;
   }
 
 }
