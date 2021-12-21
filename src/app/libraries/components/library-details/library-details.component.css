@@ -1,14 +1,19 @@
-.library-details-card {
-  display: flex;
-  align-items: flex-end;
-}
-
-mat-slider {
-  width: 300px;
-}
-
 .book-cover {
   height: 300px;
   margin: 10px;
   border-radius: 15px;
+}
+
+.details {
+  display: flex;
+  align-items: flex-start;
+}
+
+.details .content {
+  flex: 1;
+  padding: 10px;
+}
+
+.details .content mat-slider {
+  width: 300px;
 }

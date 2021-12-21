@@ -1,48 +1,16 @@
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            <img mat-card-image [src]="bookSelected.image" [alt]="bookSelected.title" class="book-cover">
-        </div>
-        <div class="col-9">
-            <h2>{{bookSelected.title}}</h2>
-            <h4>{{bookSelected.authors[0].name}}</h4>
-            <mat-accordion>
-                <form [formGroup]="form">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Enter a date range</mat-label>
-                        <mat-date-range-input [formGroup]="form" [rangePicker]="picker">
-                            <input matStartDate formControlName="startDate" placeholder="Start date">
-                            <input matEndDate formControlName="endDate" placeholder="End date">
-                        </mat-date-range-input>
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-date-range-picker #picker></mat-date-range-picker>
-
-                        <mat-error *ngIf="form.controls.startDate.hasError('matStartDateInvalid')">Invalid start
-                            date
-                        </mat-error>
-                        <mat-error *ngIf="form.controls.endDate.hasError('matEndDateInvalid')">Invalid end date
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-slider formControlName="rating" thumbLabel tickInterval="0.1" step="0.1" min="0" max="10"
-                        aria-label="units"></mat-slider>{{form.controls.rating.value}}
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Notas</mat-label>
-                        <textarea formControlName="note" matInput placeholder="Ej: Me gustó"></textarea>
-                    </mat-form-field>
-                </form>
-                <mat-expansion-panel hideToggle>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Descripcion
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <div [innerHTML]="[bookSelected.description]"></div>
-                </mat-expansion-panel>
-            </mat-accordion>
-            <mat-card-actions>
-                <button mat-button (click)="addBookToLibrary()">LIKE</button>
-                <button mat-button>SHARE</button>
-            </mat-card-actions>
-        </div>
+<div class="details">
+    <img mat-card-image [src]="librarySelected.book.image" [alt]="librarySelected.book.title" class="book-cover">
+    <div class="content">
+        <h2>{{librarySelected.book.title}}</h2>
+        <h4>{{displayAuthors(librarySelected.book.authors)}}</h4>
+        <mat-slider thumbLabel="true" tickInterval="0.1" step="0.1" min="0" max="10" aria-label="units"
+            value="{{librarySelected.rating}}" disabled="true"></mat-slider>{{librarySelected.rating}}
+        <p>{{librarySelected.note}}</p>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Descripción...</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div [innerHTML]="[librarySelected.book.description]"></div>
+        </mat-expansion-panel>
     </div>
 </div>
