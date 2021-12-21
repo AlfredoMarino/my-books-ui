@@ -1,3 +1,6 @@
-<mat-form-field>
+<mat-form-field appearance="fill">
   <input matInput (keydown.enter)="searchBook()" placeholder="Search" name="search" [formControl]="search">
+  <button mat-button matSuffix mat-icon-button (click)="searchBook()">
+    <mat-icon>search</mat-icon>
+  </button>
 </mat-form-field>

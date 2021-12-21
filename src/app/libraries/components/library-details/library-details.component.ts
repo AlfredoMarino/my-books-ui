@@ -12,6 +12,8 @@ export class LibraryDetailsComponent implements OnInit {
   @Input()
   librarySelected: Library;
 
+  constructor() { }
+
   ngOnInit(): void { }
 
   displayAuthors(authors: Author[]): string {
