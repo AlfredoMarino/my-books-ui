@@ -17,6 +17,7 @@ export class BookListComponent implements OnInit {
   books: Book[];
 
   bookSelected: Book;
+  tabPosition: number = 0;
 
   constructor(private bookService: BookService, private activatedRoute: ActivatedRoute) { }
 
@@ -25,16 +26,18 @@ export class BookListComponent implements OnInit {
   }
 
   addBookToLibrary(bookSelected: Book) {
-    console.log('bookSelected: ', bookSelected);
     this.bookSelected = bookSelected;
+    this.tabPosition = 1;
   }
 
   getBooksByName(name: string): void {
     this.bookService.getBooksByName(name).subscribe(books => {
       this.books = books;
-      // this.bookSelected = this.books[2]; //TEMP
     });
-    
+  }
+
+  onSelectedIndexChange(tabIndex: number): void {
+    this.tabPosition = tabIndex;
   }
 
 }

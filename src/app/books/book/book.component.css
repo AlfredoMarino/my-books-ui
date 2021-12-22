@@ -2,11 +2,6 @@
   position: relative;
 }
 
-.book-container .book-image {
-  width: 150px;
-  border-radius: 15%;
-}
-
 .book-container .btn {
   position: absolute;
   top: 85%;
@@ -16,12 +11,8 @@
   cursor: pointer;
 }
 
-@media (min-width: 576px) {
-  .book-container .book-image {
-    width: 230px;
-  }
-
-  .book-container .btn {
-    left: 65%;
-  }
+.book-cover {
+  height: 300px;
+  margin: 10px;
+  border-radius: 15px;
 }
