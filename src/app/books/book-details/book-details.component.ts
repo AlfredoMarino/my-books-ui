@@ -23,35 +23,30 @@ export class BookDetailsComponent implements OnInit {
   isLoading: boolean = false;
 
   form: FormGroup = new FormGroup({
-    startDate: new FormControl(),
-    endDate: new FormControl(),
-    rating: new FormControl(),
+    rating: new FormControl(5),
     note: new FormControl()
   })
+
+  private COUNTRY: Country = { countryId: environment.countryId }
+  private REGION: Region = { regionId: environment.regionId }
+  private NOW = new Date();
 
   constructor(private libraryService: LibraryService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
-  
+
   addBookToLibrary(): void {
     this.isLoading = true;
-    const currentCountry: Country = {
-      countryId: 95
-    }
-
-    const currentRegion: Region = {
-      regionId: 1866
-    }
 
     const library: Library = {
       book: this.bookSelected,
-      startDate: this.form.controls.startDate.value,
-      endDate: this.form.controls.endDate.value,
-      initialCountry: currentCountry,
-      initialRegion: currentRegion,
-      finalCountry: currentCountry,
-      finalRegion: currentRegion,
+      startDate: this.NOW,
+      endDate: this.NOW,
+      initialCountry: this.COUNTRY,
+      initialRegion: this.REGION,
+      finalCountry: this.COUNTRY,
+      finalRegion: this.REGION,
       rating: this.form.controls.rating.value,
       note: this.form.controls.note.value
     }
@@ -59,16 +54,18 @@ export class BookDetailsComponent implements OnInit {
     this.libraryService.createLibrary(environment.personId, library.book.googleId, library)
       .subscribe(
         (response) => {
-          this.isLoading = false;
-          this.snackBar.open(`The book was added to your library successfully 😀`, "Acept", {
-            duration: 3000,
-          }).afterDismissed().subscribe(() => {
+          this.snackBar.open(
+            `The book was added to your library successfully 😀`,
+            "Acept",
+            { duration: 3000 }
+          ).afterDismissed()
+          .subscribe(() => {
             window.location.reload();
           });
         },
         (error: HttpErrorResponse) => {
           console.error(error)
-          let errorMessage = error.error.message ? error.error.message : error.message
+          const errorMessage = error.error.message ? error.error.message : error.message
           this.snackBar.open(`Oops, a problem occurred 🤮 "${errorMessage}"`, "Acept");
           this.isLoading = false;
         }
