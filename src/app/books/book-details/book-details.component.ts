@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Author } from '@core/models/author.model';
 import { Book } from '@core/models/book.model';
 import { Country } from '@core/models/country.model';
 import { Library } from '@core/models/library.model';
@@ -52,6 +53,11 @@ export class BookDetailsComponent implements OnInit {
     }
 
 
-    this.libraryService.createLibrary(environment.personId, library.book.googleId, library).subscribe(library => console.log("done", library));
+    this.libraryService.createLibrary(environment.personId, library.book.googleId, library)
+      .subscribe(library => console.log("done", library));
+  }
+
+  displayAuthors(authors: Author[]): string {
+    return authors.map(author => author.name).join(", ");
   }
 }

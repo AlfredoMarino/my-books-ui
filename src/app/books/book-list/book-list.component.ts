@@ -22,7 +22,10 @@ export class BookListComponent implements OnInit {
   constructor(private bookService: BookService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({ name }) => this.getBooksByName(name));
+    this.activatedRoute.params.subscribe(({ name }) => {
+      this.getBooksByName(name)
+      this.tabPosition = 0;
+    });
   }
 
   addBookToLibrary(bookSelected: Book) {
