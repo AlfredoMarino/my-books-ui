@@ -20,6 +20,8 @@ export class BookDetailsComponent implements OnInit {
   @Input()
   bookSelected: Book;
 
+  isLoading: boolean = false;
+
   form: FormGroup = new FormGroup({
     startDate: new FormControl(),
     endDate: new FormControl(),
@@ -33,6 +35,7 @@ export class BookDetailsComponent implements OnInit {
   }
   
   addBookToLibrary(): void {
+    this.isLoading = true;
     const currentCountry: Country = {
       countryId: 95
     }
@@ -56,6 +59,7 @@ export class BookDetailsComponent implements OnInit {
     this.libraryService.createLibrary(environment.personId, library.book.googleId, library)
       .subscribe(
         (response) => {
+          this.isLoading = false;
           this.snackBar.open(`The book was added to your library successfully 😀`, "Acept", {
             duration: 3000,
           }).afterDismissed().subscribe(() => {
@@ -66,11 +70,12 @@ export class BookDetailsComponent implements OnInit {
           console.error(error)
           let errorMessage = error.error.message ? error.error.message : error.message
           this.snackBar.open(`Oops, a problem occurred 🤮 "${errorMessage}"`, "Acept");
+          this.isLoading = false;
         }
       );
   }
 
   displayAuthors(authors: Author[]): string {
-    return authors.map(author => author.name).join(", ");
+    return authors ? authors.map(author => author.name).join(", ") : "";
   }
 }

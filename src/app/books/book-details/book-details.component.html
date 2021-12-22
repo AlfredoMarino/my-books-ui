@@ -28,14 +28,10 @@
             </mat-form-field>
 
             <p>Selected range: {{form.value | json}}</p>
-            <button mat-raised-button color="accent" (click)="addBookToLibrary()">Add</button>
-        </form>
-
-        <mat-expansion-panel hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>Descripción...</mat-panel-title>
-            </mat-expansion-panel-header>
+            <button mat-raised-button color="accent" [disabled]="isLoading" (click)="addBookToLibrary()">Add</button>
             <div [innerHTML]="[bookSelected.description]"></div>
-        </mat-expansion-panel>
+        </form>
     </div>
 </div>
+
+<mat-spinner class="spiner" *ngIf="isLoading"> </mat-spinner>
