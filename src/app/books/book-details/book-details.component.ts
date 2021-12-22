@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Author } from '@core/models/author.model';
 import { Book } from '@core/models/book.model';
 import { Country } from '@core/models/country.model';
@@ -18,7 +20,6 @@ export class BookDetailsComponent implements OnInit {
   @Input()
   bookSelected: Book;
 
-  panelOpenState = false;
   form: FormGroup = new FormGroup({
     startDate: new FormControl(),
     endDate: new FormControl(),
@@ -26,12 +27,12 @@ export class BookDetailsComponent implements OnInit {
     note: new FormControl()
   })
 
-  constructor(private libraryService: LibraryService) { }
+  constructor(private libraryService: LibraryService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
   
-  addBookToLibrary() {
+  addBookToLibrary(): void {
     const currentCountry: Country = {
       countryId: 95
     }
@@ -52,9 +53,21 @@ export class BookDetailsComponent implements OnInit {
       note: this.form.controls.note.value
     }
 
-
     this.libraryService.createLibrary(environment.personId, library.book.googleId, library)
-      .subscribe(library => console.log("done", library));
+      .subscribe(
+        (response) => {
+          this.snackBar.open(`The book was added to your library successfully 😀`, "Acept", {
+            duration: 3000,
+          }).afterDismissed().subscribe(() => {
+            window.location.reload();
+          });
+        },
+        (error: HttpErrorResponse) => {
+          console.error(error)
+          let errorMessage = error.error.message ? error.error.message : error.message
+          this.snackBar.open(`Oops, a problem occurred 🤮 "${errorMessage}"`, "Acept");
+        }
+      );
   }
 
   displayAuthors(authors: Author[]): string {

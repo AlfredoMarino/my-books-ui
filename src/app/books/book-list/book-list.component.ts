@@ -1,10 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BookService } from '@core/services/books/book.service';
 import { Book } from '@core/models/book.model';
 import { ActivatedRoute } from '@angular/router';
-import { LibraryService } from '@core/services/libraries/library.service';
-import { environment } from '@environments/environment';
-import { Library } from '@core/models/library.model';
 
 @Component({
   selector: 'app-book-list',
@@ -23,7 +20,7 @@ export class BookListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ name }) => {
-      this.getBooksByName(name)
+      this.getBooksByName(name);
       this.tabPosition = 0;
     });
   }
@@ -38,9 +35,4 @@ export class BookListComponent implements OnInit {
       this.books = books;
     });
   }
-
-  onSelectedIndexChange(tabIndex: number): void {
-    this.tabPosition = tabIndex;
-  }
-
 }
