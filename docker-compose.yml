@@ -3,7 +3,8 @@ services:
   my_books_service:
     image: aamv/my-books-service:latest
     depends_on:
-      - my_books_database
+      my_books_database:
+        condition: service_healthy
     ports:
       - '5000:8080'
     expose:
@@ -18,7 +19,7 @@ services:
       - backend-network
 
   my_books_database:
-    image: mysql:latest
+    image: aamv/my-books-mysql:latest
     environment:
       MYSQL_DATABASE: 'mybooksdb'
       MYSQL_USER: 'aamv'
@@ -30,6 +31,10 @@ services:
       - '3306'
     volumes:
       - my-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
     networks:
       - backend-network
 

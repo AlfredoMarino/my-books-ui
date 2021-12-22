@@ -1,3 +1,19 @@
-<div class="book-grid">
-  <app-library *ngFor="let library of libraries" [library]="library"></app-library>
-</div>
+<mat-tab-group mat-align-tabs="start" [selectedIndex]="tabPosition"
+  (selectedIndexChange)="onSelectedIndexChange($event)">
+  <mat-tab label="books">
+    <div class="container">
+      <div class="row">
+        <app-library *ngFor="let library of libraries" [library]="library"
+          (librarySelected)="showLibrarySelected($event)">
+        </app-library>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Details">
+    <div class="container">
+      <div class="row">
+        <app-library-details *ngIf="librarySelected" [librarySelected]="librarySelected"></app-library-details>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

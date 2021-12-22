@@ -10,7 +10,9 @@ import { environment } from "@environments/environment";
 })
 export class LibraryListComponent implements OnInit {
 
+  tabPosition: number = 0;
   libraries: Library[];
+  librarySelected: Library;
 
   constructor(private libraryService: LibraryService) { }
 
@@ -20,6 +22,15 @@ export class LibraryListComponent implements OnInit {
 
   getLibraries(): void {
     this.libraryService.getLibrariesByPersonId(environment.personId).subscribe(libraries => this.libraries = libraries);
+  }
+
+  showLibrarySelected(librarySelected: Library): void {
+    this.librarySelected = librarySelected;
+    this.tabPosition = 1;
+  }
+
+  onSelectedIndexChange(tabIndex: number): void {
+    this.tabPosition = tabIndex;
   }
 
 }

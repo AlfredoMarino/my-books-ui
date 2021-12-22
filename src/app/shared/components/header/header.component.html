@@ -1,14 +1,6 @@
 <mat-toolbar color="primary">
-  <span>
-    <mat-icon>local_library</mat-icon>
+  <span routerLink="/" routerLinkActive="active">
+    <img src="/assets/graph-resources/My _book__6.png" alt="{{ APP_TITLE }}" class="my-books-icon">
   </span>
-  <span>{{ APP_TITLE }}</span>
-  <span class="example-spacer">
-    <app-search></app-search>
-  </span>
-  <nav>
-    <button mat-icon-button color="accent" aria-label="Go to home" routerLink="/" routerLinkActive="active">
-      <mat-icon>home</mat-icon>
-    </button>
-  </nav>
+  <app-search></app-search>
 </mat-toolbar>

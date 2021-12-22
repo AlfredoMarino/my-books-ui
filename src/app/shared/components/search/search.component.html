@@ -1,39 +1,6 @@
-<!-- <mat-form-field appearance="fill">
-    <mat-label>Busqueda</mat-label>
-    <input matInput [formControl]="search">
-</mat-form-field> -->
-<!-- 
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input
-      type="text"
-      placeholder="Pick one"
-      aria-label="Number"
-      matInput
-      [formControl]="myControl"
-      [matAutocomplete]="auto"
-    />
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let option of filteredOptions | async"
-        [value]="option"
-      >
-        {{ option }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</form> -->
-
 <mat-form-field appearance="fill">
-  <mat-label>Buscar</mat-label>
-  <input matInput [formControl]="search" />
-  <button
-    mat-icon-button
-    matSuffix
-    (click)="searchBook()"
-    [attr.aria-label]="'Buscar'"
-    [attr.aria-pressed]="hide"
-  >
-    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+  <input matInput (keydown.enter)="searchBook()" placeholder="Search" name="search" [formControl]="search">
+  <button mat-button matSuffix mat-icon-button (click)="searchBook()">
+    <mat-icon>search</mat-icon>
   </button>
 </mat-form-field>

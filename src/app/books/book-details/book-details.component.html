@@ -1,0 +1,25 @@
+<div class="details">
+    <img mat-card-image [src]="bookSelected.image" [alt]="bookSelected.title" class="book-cover">
+    <div class="content">
+        <h2>{{bookSelected.title}}</h2>
+        <h4>{{displayAuthors(bookSelected.authors)}}</h4>
+
+        <form [formGroup]="form">
+            <div [innerHTML]="[bookSelected.description]"></div>
+
+            <mat-divider></mat-divider>
+            <mat-label>Review</mat-label>
+            <mat-slider formControlName="rating" thumbLabel tickInterval="0.1" step="0.1" min="0" max="10"
+                aria-label="units"></mat-slider>{{form.controls.rating.value}}
+                <br>
+            <mat-form-field appearance="outline" class="mat-textarea">
+                <mat-label>Notes</mat-label>
+                <textarea formControlName="note" matInput rows="5" cols="100" placeholder="ex. I liked"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="accent" [disabled]="isLoading" (click)="addBookToLibrary()">Add</button>
+        </form>
+    </div>
+</div>
+
+<mat-spinner class="spiner" *ngIf="isLoading"> </mat-spinner>

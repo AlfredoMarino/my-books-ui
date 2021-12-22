@@ -1,3 +1,16 @@
-<div class="book-grid">
-  <app-book *ngFor="let book of books" [book]="book"></app-book>
-</div>
+<mat-tab-group mat-align-tabs="start" [(selectedIndex)]="tabPosition">
+  <mat-tab label="books">
+    <div class="container">
+      <div class="row">
+        <app-book *ngFor="let book of books" [book]="book" (bookSelected)="addBookToLibrary($event)"></app-book>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Details">
+    <div class="container">
+      <div class="row">
+        <app-book-details *ngIf="bookSelected" [bookSelected]="bookSelected"></app-book-details>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

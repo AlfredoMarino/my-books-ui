@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Library } from '@core/models/library.model';
 import { LibraryService } from '@core/services/libraries/library.service';
 
@@ -9,7 +9,11 @@ import { LibraryService } from '@core/services/libraries/library.service';
 })
 export class LibraryComponent implements OnInit {
 
-  @Input() library: Library;
+  @Input()
+  library: Library;
+
+  @Output()
+  librarySelected = new EventEmitter<Library>();
 
   constructor(private libraryService: LibraryService) { }
 
@@ -19,5 +23,9 @@ export class LibraryComponent implements OnInit {
 
   deleteLibrary() {
     this.libraryService.deleteLibrary(20, this.library.book.bookId).subscribe(resp => console.log(resp));
+  }
+
+  onShowDetails() {
+    this.librarySelected.emit(this.library)
   }
 }
