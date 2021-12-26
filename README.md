@@ -42,8 +42,8 @@ In this way, the test environment will be started on port 4200 and this environm
 
 Enjoy it ;)
 
-!(demo1)[resources/demo1.png]
-!(demo2)[resources/demo2.png]
+![demo1](resources/demo1.png)
+![demo2](resources/demo2.png)
 
 ## Contributing
 
