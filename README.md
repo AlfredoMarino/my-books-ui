@@ -1,27 +1,50 @@
 # MyBooksUi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+![my-books-image](src/assets/graph-resources/My _book__6.png)
 
-## Development server
+This is the user interface of the my-books project, which shows the books that you have read and allows you to search and add new books as a CRUD, in future releases it will be possible to scale and implement new functionalities such as:
+- Login and profile
+- Book recommendations according to categories and authors.
+- Trade of books with other users
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+- docker
+- node
+- angular cli
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Install
 
-## Running unit tests
+- Clone this repo
+```sh
+$ git clone https://github.com/AlfredoMarino/my-books-ui.git
+```
+ - Execute Docker compose to start the entire my-books ecosystem (database, backend, and frontend)
+```sh
+$ cd my-books-ui
+$ docker-compose up
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+At this point, you can already test the application since the last docker image of this application is running. Go to http://localhost/
 
-## Running end-to-end tests
+If you need to run the test environment follow the following steps:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```sh
+$ npm install
 
-## Further help
+$ npm run start
+```
+In this way, the test environment will be started on port 4200 and this environment will point to the backend already started by docker-compose on port 5000. Check in your browser http://localhost:4200/
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Enjoy it ;)
+
+!(demo1)[resources/demo1.png]
+!(demo2)[resources/demo2.png]
+
+## Contributing
+
+Pull requests are welcome.
