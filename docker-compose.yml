@@ -1,6 +1,7 @@
 version: '3.3'
 services:
   my_books_service:
+    container_name: my-books-service
     image: aamv/my-books-service:latest
     depends_on:
       my_books_database:
@@ -12,13 +13,14 @@ services:
     volumes:
       - /data/spring-boot-app
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://my_books_database:3306/mybooksdb
+      SPRING_DATASOURCE_URL: jdbc:mysql://my-books-database:3306/mybooksdb
       SPRING_DATASOURCE_USERNAME: aamv
       SPRING_DATASOURCE_PASSWORD: aamv
     networks:
-      - backend-network
+      - my-books-network
 
   my_books_database:
+    container_name: my-books-database
     image: aamv/my-books-mysql:latest
     environment:
       MYSQL_DATABASE: 'mybooksdb'
@@ -36,9 +38,10 @@ services:
       timeout: 20s
       retries: 10
     networks:
-      - backend-network
+      - my-books-network
 
   my_books_ui:
+    container_name: my-books-ui
     image: aamv/my-books-ui:latest
     depends_on:
       - my_books_database
@@ -47,8 +50,10 @@ services:
       - '80:80'
     expose:
       - '80'
+    networks:
+      - my-books-network
 
 volumes:
   my-db:
 networks:
-  backend-network:
+  my-books-network:
