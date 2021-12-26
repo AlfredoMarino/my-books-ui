@@ -1,16 +1,36 @@
 <div class="details">
     <img mat-card-image [src]="librarySelected.book.image" [alt]="librarySelected.book.title" class="book-cover">
     <div class="content">
-        <h2>{{librarySelected.book.title}}</h2>
-        <h4>{{displayAuthors(librarySelected.book.authors)}}</h4>
-        <mat-slider thumbLabel="true" tickInterval="0.1" step="0.1" min="0" max="10" aria-label="units"
-            value="{{librarySelected.rating}}" disabled="true"></mat-slider>{{librarySelected.rating}}
-        <p>{{librarySelected.note}}</p>
-        <mat-expansion-panel hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>Descripción...</mat-panel-title>
-            </mat-expansion-panel-header>
-            <div [innerHTML]="[librarySelected.book.description]"></div>
-        </mat-expansion-panel>
+        <div class="row">
+            <div class="col">
+                <h2>{{librarySelected.book.title}}</h2>
+                <h4>{{displayAuthors(librarySelected.book.authors)}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <mat-label>Notes</mat-label>
+                <p>{{librarySelected.note}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <mat-label>Review</mat-label>
+                <mat-slider thumbLabel tickInterval="0.1" step="0.1" min="0" max="10" aria-label="units"
+                    value="{{librarySelected.rating}}" disabled="true"></mat-slider>{{librarySelected.rating}}
+            </div>
+            <div class="col-2">
+                <button mat-mini-fab color="warn" aria-label="Delete book from library" class="delete-button"
+                    (click)="deleteLibrary(librarySelected)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="row">
+            <div class="col" [innerHTML]="[librarySelected.book.description]"></div>
+        </div>
     </div>
 </div>
+
+<mat-spinner class="spiner" *ngIf="isLoading"> </mat-spinner>
