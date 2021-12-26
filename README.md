@@ -1,6 +1,6 @@
 # MyBooksUi
 
-![my-books-image](src/assets/graph-resources/My _book__6.png)
+![my-books-image](src/assets/graph-resources/my_books_logo.png)
 
 This is the user interface of the my-books project, which shows the books that you have read and allows you to search and add new books as a CRUD, in future releases it will be possible to scale and implement new functionalities such as:
 - Login and profile
