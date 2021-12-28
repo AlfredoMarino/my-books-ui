@@ -2,7 +2,8 @@
 
 ![my-books-image](src/assets/graph-resources/my_books_logo.png)
 
-This is the user interface of the my-books project, which shows the books that you have read and allows you to search and add new books as a CRUD, in future releases it will be possible to scale and implement new functionalities such as:
+This is the user interface of the my-books project, which shows the books that you have read and allows you to search and add new books as a CRUD.
+In future releases it will be possible to scale and implement new functionalities such as:
 - Login and profile
 - Book recommendations according to categories and authors.
 - Trade of books with other users
@@ -44,6 +45,13 @@ Enjoy it ;)
 
 ![demo1](resources/demo1.png)
 ![demo2](resources/demo2.png)
+
+## Related projects
+
++ [my-books-service](https://github.com/AlfredoMarino/my-books-service)
++ [my-books-mysql](https://github.com/AlfredoMarino/my-books-mysql)
++ [my-books-gke](https://github.com/AlfredoMarino/my-books-gke)
++ [My docker-hub](https://hub.docker.com/u/aamv)
 
 ## Contributing
 
