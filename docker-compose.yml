@@ -7,9 +7,9 @@ services:
       my_books_database:
         condition: service_healthy
     ports:
-      - '5000:8080'
+      - '31666:8080'
     expose:
-      - '5000'
+      - '31666'
     volumes:
       - /data/spring-boot-app
     environment:

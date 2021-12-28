@@ -39,7 +39,7 @@ $ npm install
 
 $ npm run start
 ```
-In this way, the test environment will be started on port 4200 and this environment will point to the backend already started by docker-compose on port 5000. Check in your browser http://localhost:4200/
+In this way, the test environment will be started on port 4200 and this environment will point to the backend already started by docker-compose on port 31666. Check in your browser http://localhost:4200/
 
 Enjoy it ;)
 
